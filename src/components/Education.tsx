@@ -7,10 +7,10 @@ const Education = () => {
     {
       degree: 'B.Tech in Computer Science and Engineering',
       institution: 'Sree Vidyanikethan Engineering College',
-      location: 'Bangalore, Karnataka',
+      location: 'Tirupati, Andhra Pradesh',
       duration: '2021 - 2025',
       grade: '8.0/10 CGPA',
-      status: 'Pursuing',
+      status: 'Completed',
       description: 'Comprehensive program covering software engineering, data structures, algorithms, database systems, and modern development frameworks.',
       highlights: [
         'Core subjects: Data Structures, Algorithms, DBMS, Operating Systems',
