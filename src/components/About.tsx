@@ -44,8 +44,7 @@ const About = () => {
               </h3>
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                 I'm a passionate Computer Science and Engineering student with a deep love for full-stack development. 
-                Currently pursuing my B.Tech at G-TECH JAINX Education, I specialize in building scalable web applications 
-                that solve real-world problems.
+                 I specialize in building scalable web applications that solve real-world problems.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                 My journey in technology has led me to gain hands-on experience with modern frameworks like React and Angular 

@@ -53,7 +53,7 @@ const Projects = () => {
         'Batch processing capabilities',
       ],
       category: 'Machine Learning',
-      status: 'Completed',
+      status: 'Completed', 
       gradient: 'from-purple-500 to-pink-600',
     },
   ];
