@@ -6,7 +6,7 @@ const Education = () => {
   const educationData = [
     {
       degree: 'B.Tech in Computer Science and Engineering',
-      institution: 'G-TECH JAINX Education, Yelahanka',
+      institution: 'Sree Vidyanikethan Engineering College',
       location: 'Bangalore, Karnataka',
       duration: '2021 - 2025',
       grade: '8.0/10 CGPA',
