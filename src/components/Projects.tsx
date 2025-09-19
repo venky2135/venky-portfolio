@@ -6,6 +6,26 @@ import { Badge } from '@/components/ui/badge';
 const Projects = () => {
   const projects = [
     {
+      title: 'PG Management System',
+      subtitle: 'Full-Stack Accommodation Management Platform',
+      description: 'A comprehensive web-based management system for Paying Guest accommodations built with Spring Boot backend and Angular frontend. The system automates tenant management, room allocation, rent tracking, billing, and administrative operations with role-based access control for PG owners and tenants.',
+      technologies: ['Spring Boot', 'Angular', 'Java', 'TypeScript', 'MySQL', 'Spring Security', 'REST APIs', 'Bootstrap'],
+      features: [
+        'Tenant registration and profile management',
+        'Room allocation and availability tracking',
+        'Automated rent collection and billing',
+        'Complaint management system',
+        'Role-based dashboards for owners and tenants',
+        'Payment history and financial reports',
+        'Maintenance request tracking',
+        'Real-time notifications and updates',
+      ],
+      category: 'Full-Stack Enterprise App',
+      status: 'Completed',
+      gradient: 'from-orange-500 to-red-600',
+      githubUrl: 'https://github.com/venky2135/pg-management-system.git',
+    },
+    {
       title: 'Chat-Sphere',
       subtitle: 'Real-time Communication Platform',
       description: 'A comprehensive real-time chat platform built with Node.js, Express, and Socket.IO, supporting both private messages and group conversations. Features include chat history persistence, typing indicators, presence tracking, and a modular architecture designed for future expansion into voice and video calls.',
@@ -21,6 +41,7 @@ const Projects = () => {
       category: 'Full-Stack Web App',
       status: 'Completed',
       gradient: 'from-blue-500 to-indigo-600',
+      githubUrl: 'https://github.com/venky2135',
     },
     {
       title: 'PG Life Project',
@@ -38,6 +59,7 @@ const Projects = () => {
       category: 'Frontend Web App',
       status: 'Completed',
       gradient: 'from-green-500 to-teal-600',
+      githubUrl: 'https://github.com/venky2135',
     },
     {
       title: 'Short Video Analysis Platform',
@@ -55,6 +77,7 @@ const Projects = () => {
       category: 'Machine Learning',
       status: 'Completed', 
       gradient: 'from-purple-500 to-pink-600',
+      githubUrl: 'https://github.com/venky2135',
     },
   ];
 
@@ -83,7 +106,7 @@ const Projects = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-2 xl:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <Card
               key={project.title}
@@ -173,7 +196,7 @@ const Projects = () => {
                     size="sm"
                     variant="ghost"
                     className="text-xs hover:bg-primary/10 hover:text-primary"
-                    onClick={() => window.open('https://github.com/venky2135', '_blank')}
+                    onClick={() => window.open(project.githubUrl || 'https://github.com/venky2135', '_blank')}
                   >
                     <Github className="h-3 w-3" />
                   </Button>
