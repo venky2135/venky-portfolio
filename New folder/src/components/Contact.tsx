@@ -5,10 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
-import emailjs from '@emailjs/browser';
-
-// Initialize EmailJS with your public key
-emailjs.init('jpiVu43umiRSPPvfR');
+import { supabase } from '@/integrations/supabase/client';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -32,46 +29,29 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      console.log('Submitting form with data:', formData);
+      const { error } = await supabase
+        .from('contact_submissions')
+        .insert({
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        });
 
-      // EmailJS configuration
-      const serviceId = 'service_pusko74';
-      const mainTemplateId = 'template_zrosmps'; // Template for you (main notification)
-      const autoReplyTemplateId = 'template_zaz4dsv'; // Template for auto-reply to user
-
-      const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        subject: formData.subject,
-        message: formData.message,
-      };
-
-      console.log('Template params:', templateParams);
-
-      // Send main email to you
-      console.log('Sending main email to you...');
-      const mainEmailResponse = await emailjs.send(serviceId, mainTemplateId, templateParams);
-      console.log('Main email sent successfully:', mainEmailResponse);
-
-      // Send auto-reply to the user
-      console.log('Sending auto-reply to user...');
-      const autoReplyResponse = await emailjs.send(serviceId, autoReplyTemplateId, templateParams);
-      console.log('Auto-reply sent successfully:', autoReplyResponse);
+      if (error) {
+        throw error;
+      }
 
       toast({
         title: "Message sent successfully!",
-        description: "Thank you for reaching out. You'll receive a confirmation email shortly, and I'll get back to you soon.",
+        description: "Thank you for reaching out. I'll get back to you soon.",
       });
-      
-      // Clear form
       setFormData({ name: '', email: '', subject: '', message: '' });
-      
     } catch (error) {
-      console.error('Detailed error:', error);
-      
+      console.error('Error submitting form:', error);
       toast({
         title: "Failed to send message",
-        description: `Error: ${error.text || 'Something went wrong. Please try again or contact me directly.'}`,
+        description: "Something went wrong. Please try again or contact me directly.",
         variant: "destructive",
       });
     } finally {
@@ -79,7 +59,6 @@ const Contact = () => {
     }
   };
 
-  // Rest of your component code remains the same...
   const contactInfo = [
     {
       icon: Mail,
@@ -291,7 +270,7 @@ const Contact = () => {
                     {isSubmitting ? (
                       <>
                         <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                        Sending Message...
+                        Sending...
                       </>
                     ) : (
                       <>

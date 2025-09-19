@@ -24,7 +24,6 @@ const Projects = () => {
       status: 'Completed',
       gradient: 'from-orange-500 to-red-600',
       githubUrl: 'https://github.com/venky2135/pg-management-system.git',
-      projectUrl: 'https://github.com/venky2135/pg-management-system.git', // Repository view
     },
     {
       title: 'Chat-Sphere',
@@ -43,7 +42,6 @@ const Projects = () => {
       status: 'Completed',
       gradient: 'from-blue-500 to-indigo-600',
       githubUrl: 'https://github.com/venky2135',
-      projectUrl: 'https://venky-chat-service.onrender.com/', // Live demo
     },
     {
       title: 'PG Life Project',
@@ -62,7 +60,6 @@ const Projects = () => {
       status: 'Completed',
       gradient: 'from-green-500 to-teal-600',
       githubUrl: 'https://github.com/venky2135',
-      projectUrl: 'https://github.com/venky2135/Pg-life-project.git', // Repository view
     },
     {
       title: 'Short Video Analysis Platform',
@@ -81,7 +78,6 @@ const Projects = () => {
       status: 'Completed', 
       gradient: 'from-purple-500 to-pink-600',
       githubUrl: 'https://github.com/venky2135',
-      projectUrl: 'https://github.com/venky2135', // Repository view
     },
   ];
 
@@ -191,7 +187,7 @@ const Projects = () => {
                     size="sm"
                     variant="outline"
                     className="flex-1 text-xs hover:bg-primary hover:text-primary-foreground border-primary/20 hover:border-primary"
-                    onClick={() => window.open(project.projectUrl, '_blank')}
+                    onClick={() => window.scrollTo({ top: document.getElementById('contact')?.offsetTop, behavior: 'smooth' })}
                   >
                     <Eye className="h-3 w-3 mr-1" />
                     View Details
